@@ -1,0 +1,26 @@
+# YOLOv5 🚀 by Ultralytics https://ultralytics.com, licensed under GNU GPL v3.0
+# PASCAL VOC dataset http://host.robots.ox.ac.uk/pascal/VOC
+# Example usage: python train.py --data VOC.yaml
+# parent
+# ├── yolov5
+# └── datasets
+#     └── VOC  ← downloads here
+
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: /mnt/e/datasets/HSRC2016/HRSC2016/
+train: # train images (relative to 'path')  16551 images
+  - images/trainval_ship_detection_
+val: # val images (relative to 'path')  4952 images
+  - images/test_ship_detection_
+test: # test images (optional)
+  - images/test_ship_detection_
+
+# Classes
+nc: 33  # number of classes
+names: ['船', '航母','军舰','商船', '尼米兹级航母', '企业级航母',
+ '阿利伯克级驱逐舰', '惠德贝岛级船坞登陆舰', '佩里级护卫舰', '圣安东尼奥级两栖船坞运输舰',
+ '提康德罗加级巡洋舰', '小鹰级航母', '俄罗斯库兹涅佐夫号航母', '阿武隈级护卫舰','奥斯汀级两栖船坞运输舰',
+ '塔拉瓦级通用两栖攻击舰', '蓝岭级指挥舰', '集装箱货船', '尾部OX头部圆指挥舰', 
+ '运输汽车船', 'unknown' ,'气垫船', 'unknown', '游艇', '货船', '游轮', '潜艇', '琵琶形军舰', '医疗船',
+ '运输汽车船', '福特级航空母舰', '中途号航母', '无敌级航空母舰']  # class names
