@@ -364,6 +364,34 @@ def img2label_paths(img_paths):
     return [sb.join(x.rsplit(sa, 1)).rsplit('.', 1)[0] + '.txt' for x in img_paths]
 
 
+class LoadInferenceImages(Dataset):
+    def __init__(self, path, batch_size=16, img_size=640):
+        self.img_size = img_size
+        self.batch_size = batch_size
+        merge_img = cv2.imread(path)
+        shape = merge_img.shape[:2]
+        ys = shape[0] // img_size
+        xs = shape[1] // img_size
+        self.dict = []
+        for y in range(ys):
+            for x in range(xs):
+                cropped = merge_img[y*img_size:(y+1)*img_size, x*img_size:(x+1)*img_size, :]
+                height, width = cropped.shape[1:]
+                image = cropped
+                input = {"image": image, "height": height, "width": width, "y": y, "x": x}
+                self.dict.append(input)
+
+    def __len__(self):
+        return len(self.dict)
+
+    def __getitem__(self, item):
+        dict = self.dict[item]
+        image = dict["image"]
+        x = dict["x"]
+        y = dict["y"]
+        return image, x, y
+
+
 class LoadImagesAndLabels(Dataset):  # for training/testing
     def __init__(self, path, img_size=640, batch_size=16, augment=False, hyp=None, rect=False, image_weights=False,
                  cache_images=False, single_cls=False, stride=32, pad=0.0, prefix='', to_gray=False):

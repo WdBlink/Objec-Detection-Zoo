@@ -86,7 +86,7 @@ def main(opt):
     root = opt.root
 
     # train on the GPU or on the CPU, if a GPU is not available
-    device = torch.device('cuda:1') if torch.cuda.is_available() else torch.device('cpu')
+    device = torch.device('cuda:0') if torch.cuda.is_available() else torch.device('cpu')
 
     # 3 classes, mark_type_1，mark_type_2，background
     num_classes = 2
@@ -128,8 +128,8 @@ def main(opt):
 
     # let's train it for   epochs
     num_epochs = 50
-    save_path = '/mnt/e/github/object-detection-zoo/runs/train/tmp/faster_rcnn.pkl'
-    result_path = '/mnt/e/github/object-detection-zoo/runs/train/tmp/faster_rcnn.jpg'
+    save_path = '/home/msi/Documents/ypy/Object-Detection-Zoo/runs/train/faster_rcnn.pkl'
+    result_path = '/home/msi/Documents/ypy/Object-Detection-Zoo/runs/train/faster_rcnn.jpg'
 
     for epoch in range(num_epochs):
         # train for one epoch, printing every 10 iterations
@@ -163,7 +163,7 @@ def main(opt):
 def parse_opt():
     parser = argparse.ArgumentParser()
     parser.add_argument('--weights', nargs='+', type=str, default='/mnt/e/github/yolov5-master/runs/train/Faster-Rcnn-mobilenetv32/last.pkl', help='model.pt path(s)')
-    parser.add_argument('--root', type=str, default='/mnt/e/Dataset/taining_data_2021-08-19', help='file/dir/URL/glob, 0 for webcam')
+    parser.add_argument('--root', type=str, default='/home/msi/Documents/Datasets/taining_data_2021-08-19', help='file/dir/URL/glob, 0 for webcam')
     parser.add_argument('--imgsz', '--img', '--img-size', type=int, default=1000, help='inference size (pixels)')
     parser.add_argument('--iou-thres', type=float, default=0.45, help='NMS IoU threshold')
     parser.add_argument('--device', default='0', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
@@ -171,7 +171,7 @@ def parse_opt():
     parser.add_argument('--save-txt', default=True, action='store_true', help='save results to *.txt')
     parser.add_argument('--classes', nargs='+', type=int, help='filter by class: --class 0, or --class 0 2 3')
     parser.add_argument('--agnostic-nms', action='store_true', help='class-agnostic NMS')
-    parser.add_argument('--project', default='runs/detect/Faster-Rcnn-mobilenetv3', help='save results to project/name')
+    parser.add_argument('--project', default='runs/detect/Faster-Rcnn-transformer', help='save results to project/name')
     parser.add_argument('--name', default='Satellite', help='save results to project/name')
     parser.add_argument('--line-thickness', default=3, type=int, help='bounding box thickness (pixels)')
     opt = parser.parse_args()

@@ -1,7 +1,7 @@
 import warnings
 from torch import nn
 from torchvision.ops.feature_pyramid_network import FeaturePyramidNetwork, LastLevelMaxPool
-
+from bottleneck_transformer_pytorch import BottleStack
 from torchvision.ops import misc as misc_nn_ops
 from .._utils import IntermediateLayerGetter
 from .. import mobilenet
@@ -32,7 +32,8 @@ class BackboneWithFPN(nn.Module):
         if extra_blocks is None:
             extra_blocks = LastLevelMaxPool()
 
-        self.body = IntermediateLayerGetter(backbone, return_layers=return_layers)
+        # self.body = IntermediateLayerGetter(backbone, return_layers=return_layers)
+        self.body = backbone
         self.fpn = FeaturePyramidNetwork(
             in_channels_list=in_channels_list,
             out_channels=out_channels,
@@ -145,7 +146,7 @@ def resnet_fpn_backbone(
     assert min(returned_layers) > 0 and max(returned_layers) < 5
     return_layers = {f'layer{k}': str(v) for v, k in enumerate(returned_layers)}
 
-    in_channels_stage2 = backbone.inplanes // 8
+    in_channels_stage2 = 64 // 8
     in_channels_list = [in_channels_stage2 * 2 ** (i - 1) for i in returned_layers]
     out_channels = 256
     return BackboneWithFPN(backbone, return_layers, in_channels_list, out_channels, extra_blocks=extra_blocks)

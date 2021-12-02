@@ -14,7 +14,7 @@ from utils.engine import train_one_epoch, evaluate
 import utils.utils as utils
 import torchvision
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
-from utils.datasets import LoadImages
+from utils.datasets import LoadImages, LoadInferenceImages
 from utils.general import increment_path
 from utils.plots import colors, plot_one_box
 import time
@@ -152,13 +152,18 @@ def showbbox(model, path, img, im0s, save_dir, device, merge_img, save_img, save
     
 def main(opt):
     print('====================begin test====================')
-    model = torch.load(opt.weights)
+    # model = torch.load(opt.weights)
     device = select_device(opt.device)
-    model.to(device)
+    # model.to(device)
 
     save_dir = increment_path(Path(opt.project) / opt.name)  # increment run
     (save_dir / 'labels' if opt.save_txt else save_dir).mkdir(parents=True, exist_ok=True)  # make dir
-    dataset = LoadImages(opt.source, img_size=opt.imgsz, stride=64)
+    loader = torch.utils.data.DataLoader
+    dataset = LoadInferenceImages(path=opt.source, batch_size=4, img_size=1000)
+    dataloader = loader(dataset, batch_size=4, num_workers=2, shuffle=False)
+    # dataset = LoadImages(opt.source, img_size=opt.imgsz, stride=64)
+    for image, x, y in dataloader:
+        type(image)
     merge_img = cv2.imread(str(opt.source)+'.tif')  
     merge_txt_path = str(save_dir / 'labels/')
 
@@ -179,7 +184,7 @@ def main(opt):
 def parse_opt():
     parser = argparse.ArgumentParser()
     parser.add_argument('--weights', nargs='+', type=str, default='/mnt/e/github/yolov5-master/runs/train/Faster-Rcnn-mobilenetv32/last.pkl', help='model.pt path(s)')
-    parser.add_argument('--source', type=str, default='/mnt/e/datasets/test_tif/201005069', help='file/dir/URL/glob, 0 for webcam')
+    parser.add_argument('--source', type=str, default='/mnt/e/datasets/test_tif/201005069.TIF', help='file/dir/URL/glob, 0 for webcam')
     parser.add_argument('--imgsz', '--img', '--img-size', type=int, default=1000, help='inference size (pixels)')
     parser.add_argument('--iou-thres', type=float, default=0.45, help='NMS IoU threshold')
     parser.add_argument('--device', default='0', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')

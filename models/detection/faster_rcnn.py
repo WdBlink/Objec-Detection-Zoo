@@ -314,11 +314,6 @@ def fasterrcnn_transformer_fpn(pretrained=False, progress=True,
         pretrained_backbone = False
     backbone = resnet_fpn_backbone('resnet_transformer', pretrained_backbone, trainable_layers=trainable_backbone_layers)
     model = FasterRCNN(backbone, num_classes, **kwargs)
-    if pretrained:
-        state_dict = load_state_dict_from_url(model_urls['fasterrcnn_resnet50_fpn_coco'],
-                                              progress=progress)
-        model.load_state_dict(state_dict)
-        overwrite_eps(model, 0.0)
     return model
 
 
@@ -399,7 +394,7 @@ def fasterrcnn_resnet50_fpn(pretrained=False, progress=True,
         model.load_state_dict(state_dict)
         overwrite_eps(model, 0.0)
     return model
-
+1000
 
 def _fasterrcnn_mobilenet_v3_large_fpn(weights_name, pretrained=False, progress=True, num_classes=91,
                                        pretrained_backbone=True, trainable_backbone_layers=None, **kwargs):

@@ -2,9 +2,9 @@ import torch
 from torch import Tensor
 import torch.nn as nn
 from self_attention_cv.bottleneck_transformer import BottleneckBlock
+from bottleneck_transformer_pytorch import BottleStack
 from .utils import load_state_dict_from_url
 from typing import Type, Any, Callable, Union, List, Optional
-
 
 __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
            'resnet152', 'resnext50_32x4d', 'resnext101_32x8d',
@@ -177,12 +177,12 @@ class ResNet(nn.Module):
         self.relu = nn.ReLU(inplace=True)
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
         if block == BottleneckBlock:
-            self.layer1 = self._make_transformer_layer(block, 64, layers[0])
-            self.layer2 = self._make_transformer_layer(block, 128, layers[1])
-            self.layer3 = self._make_transformer_layer(block, 256, layers[2])
-            self.layer4 = self._make_transformer_layer(block, 512, layers[3])
+            self.layer1 = self._make_transformer_layer(block, 16, layers[0])
+            self.layer2 = self._make_transformer_layer(block, 32, layers[1])
+            self.layer3 = self._make_transformer_layer(block, 64, layers[2])
+            self.layer4 = self._make_transformer_layer(block, 128, layers[3])
             self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
-            self.fc = nn.Linear(512 * 4, num_classes)
+            self.fc = nn.Linear(128 * 2, num_classes)
         else:
             self.layer1 = self._make_layer(block, 64, layers[0])
             self.layer2 = self._make_layer(block, 128, layers[1], stride=2,
@@ -238,10 +238,10 @@ class ResNet(nn.Module):
 
     def _make_transformer_layer(self, block: Type[BottleneckBlock], planes: int, blocks: int) -> nn.Sequential:
         layers = []
-        layers.append(block(in_channels=self.inplanes, out_channels=planes, fmap_size=(28, 28)))
-        self.inplanes = planes * 4
+        layers.append(block(in_channels=self.inplanes, out_channels=planes, fmap_size=(200, 200)))
+        self.inplanes = planes * 2
         for _ in range(1, blocks):
-            layers.append(block(in_channels=self.inplanes, out_channels=planes, fmap_size=(28, 28)))
+            layers.append(block(in_channels=self.inplanes, out_channels=planes, fmap_size=(200, 200)))
 
         return nn.Sequential(*layers)
 
@@ -319,9 +319,31 @@ def resnet50(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> 
                    **kwargs)
 
 
-def resnet_transformer(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> ResNet:
-    return _resnet('resnet_transformer', BottleneckBlock, [2, 2, 2, 2], pretrained, progress,
-                   **kwargs)
+def resnet_transformer(pretrained: bool = False, progress: bool = True, **kwargs: Any):
+    # return _resnet('resnet_transformer', BottleneckBlock, [2, 2, 2, 2], pretrained, progress,
+    #                **kwargs)
+    # return ResNet50ViT(img_dim=800, pretrained_resnet=False, blocks=6, num_classes=1000, dim_linear_block=256, dim=256)
+    layer = BottleStack(
+        dim=256,
+        fmap_size=200,  # set specifically for imagenet's 224 x 224
+        dim_out=2048,
+        proj_factor=4,
+        downsample=True,
+        heads=4,
+        dim_head=128,
+        rel_pos_emb=True,
+        activation=nn.ReLU()
+    )
+    resnet = _resnet('resnet50', Bottleneck, [3, 4, 6, 3], pretrained, progress, **kwargs)
+    backbone = list(resnet.children())
+    model = nn.Sequential(
+        *backbone[:5],
+        layer,
+        nn.AdaptiveAvgPool2d((1, 1)),
+        nn.Flatten(1),
+        nn.Linear(2048, 1000)
+    )
+    return model
 
 def resnet101(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> ResNet:
     r"""ResNet-101 model from
