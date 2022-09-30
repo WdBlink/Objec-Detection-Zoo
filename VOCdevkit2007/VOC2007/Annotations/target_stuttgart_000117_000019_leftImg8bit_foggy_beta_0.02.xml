@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<annotation>
+ <folder>Cityscapes</folder>
+ <filename>source_stuttgart_000117_000019_leftImg8bit.jpg</filename>
+ <source>
+  <database>Cityscapes</database>
+  <annotation>PASCAL VOC2007</annotation>
+ </source>
+ <size>
+  <width>2048</width>
+  <height>1024</height>
+  <depth>3</depth>
+ </size>
+ <segmented>0</segmented>
+ <object>
+  <name>car</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>1383</xmin>
+   <ymin>322</ymin>
+   <xmax>1881</xmax>
+   <ymax>696</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>car</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>1621</xmin>
+   <ymin>377</ymin>
+   <xmax>2043</xmax>
+   <ymax>997</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>car</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>522</xmin>
+   <ymin>324</ymin>
+   <xmax>847</xmax>
+   <ymax>610</ymax>
+  </bndbox>
+ </object>
+</annotation>

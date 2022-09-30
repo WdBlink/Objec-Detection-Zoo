@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<annotation>
+ <folder>Cityscapes</folder>
+ <filename>source_hamburg_000000_098616_leftImg8bit.jpg</filename>
+ <source>
+  <database>Cityscapes</database>
+  <annotation>PASCAL VOC2007</annotation>
+ </source>
+ <size>
+  <width>2048</width>
+  <height>1024</height>
+  <depth>3</depth>
+ </size>
+ <segmented>0</segmented>
+ <object>
+  <name>person</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>1224</xmin>
+   <ymin>333</ymin>
+   <xmax>1301</xmax>
+   <ymax>521</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>person</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>1133</xmin>
+   <ymin>319</ymin>
+   <xmax>1233</xmax>
+   <ymax>536</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>person</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>1060</xmin>
+   <ymin>363</ymin>
+   <xmax>1126</xmax>
+   <ymax>525</ymax>
+  </bndbox>
+ </object>
+</annotation>

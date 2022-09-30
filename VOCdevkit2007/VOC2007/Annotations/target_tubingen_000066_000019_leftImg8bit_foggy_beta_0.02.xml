@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<annotation>
+ <folder>Cityscapes</folder>
+ <filename>source_tubingen_000066_000019_leftImg8bit.jpg</filename>
+ <source>
+  <database>Cityscapes</database>
+  <annotation>PASCAL VOC2007</annotation>
+ </source>
+ <size>
+  <width>2048</width>
+  <height>1024</height>
+  <depth>3</depth>
+ </size>
+ <segmented>0</segmented>
+ <object>
+  <name>rider</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>909</xmin>
+   <ymin>221</ymin>
+   <xmax>1241</xmax>
+   <ymax>722</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>bicycle</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>1941</xmin>
+   <ymin>589</ymin>
+   <xmax>2043</xmax>
+   <ymax>832</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>bicycle</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>682</xmin>
+   <ymin>413</ymin>
+   <xmax>1359</xmax>
+   <ymax>839</ymax>
+  </bndbox>
+ </object>
+</annotation>

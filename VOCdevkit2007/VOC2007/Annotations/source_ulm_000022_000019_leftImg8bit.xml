@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<annotation>
+ <folder>Cityscapes</folder>
+ <filename>source_ulm_000022_000019_leftImg8bit.jpg</filename>
+ <source>
+  <database>Cityscapes</database>
+  <annotation>PASCAL VOC2007</annotation>
+ </source>
+ <size>
+  <width>2048</width>
+  <height>1024</height>
+  <depth>3</depth>
+ </size>
+ <segmented>0</segmented>
+ <object>
+  <name>car</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>974</xmin>
+   <ymin>315</ymin>
+   <xmax>1060</xmax>
+   <ymax>344</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>car</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>828</xmin>
+   <ymin>337</ymin>
+   <xmax>846</xmax>
+   <ymax>362</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>bus</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>846</xmin>
+   <ymin>280</ymin>
+   <xmax>974</xmax>
+   <ymax>427</ymax>
+  </bndbox>
+ </object>
+</annotation>

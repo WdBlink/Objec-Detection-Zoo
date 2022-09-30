@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<annotation>
+ <folder>Cityscapes</folder>
+ <filename>source_darmstadt_000012_000019_leftImg8bit.jpg</filename>
+ <source>
+  <database>Cityscapes</database>
+  <annotation>PASCAL VOC2007</annotation>
+ </source>
+ <size>
+  <width>2048</width>
+  <height>1024</height>
+  <depth>3</depth>
+ </size>
+ <segmented>0</segmented>
+ <object>
+  <name>car</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>7</xmin>
+   <ymin>401</ymin>
+   <xmax>172</xmax>
+   <ymax>491</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>car</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>895</xmin>
+   <ymin>425</ymin>
+   <xmax>1091</xmax>
+   <ymax>594</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>truck</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>939</xmin>
+   <ymin>306</ymin>
+   <xmax>1099</xmax>
+   <ymax>563</ymax>
+  </bndbox>
+ </object>
+</annotation>

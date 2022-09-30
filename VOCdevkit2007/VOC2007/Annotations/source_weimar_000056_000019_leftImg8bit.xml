@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<annotation>
+ <folder>Cityscapes</folder>
+ <filename>source_weimar_000056_000019_leftImg8bit.jpg</filename>
+ <source>
+  <database>Cityscapes</database>
+  <annotation>PASCAL VOC2007</annotation>
+ </source>
+ <size>
+  <width>2048</width>
+  <height>1024</height>
+  <depth>3</depth>
+ </size>
+ <segmented>0</segmented>
+ <object>
+  <name>person</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>1139</xmin>
+   <ymin>402</ymin>
+   <xmax>1160</xmax>
+   <ymax>440</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>person</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>846</xmin>
+   <ymin>371</ymin>
+   <xmax>975</xmax>
+   <ymax>596</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>car</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>559</xmin>
+   <ymin>379</ymin>
+   <xmax>796</xmax>
+   <ymax>574</ymax>
+  </bndbox>
+ </object>
+</annotation>

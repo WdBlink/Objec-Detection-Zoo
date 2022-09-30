@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<annotation>
+ <folder>Cityscapes</folder>
+ <filename>source_strasbourg_000001_059675_leftImg8bit.jpg</filename>
+ <source>
+  <database>Cityscapes</database>
+  <annotation>PASCAL VOC2007</annotation>
+ </source>
+ <size>
+  <width>2048</width>
+  <height>1024</height>
+  <depth>3</depth>
+ </size>
+ <segmented>0</segmented>
+ <object>
+  <name>car</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>631</xmin>
+   <ymin>439</ymin>
+   <xmax>747</xmax>
+   <ymax>521</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>car</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>237</xmin>
+   <ymin>444</ymin>
+   <xmax>441</xmax>
+   <ymax>553</ymax>
+  </bndbox>
+ </object>
+</annotation>

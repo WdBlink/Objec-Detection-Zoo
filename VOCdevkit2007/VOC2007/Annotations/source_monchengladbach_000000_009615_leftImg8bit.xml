@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<annotation>
+ <folder>Cityscapes</folder>
+ <filename>source_monchengladbach_000000_009615_leftImg8bit.jpg</filename>
+ <source>
+  <database>Cityscapes</database>
+  <annotation>PASCAL VOC2007</annotation>
+ </source>
+ <size>
+  <width>2048</width>
+  <height>1024</height>
+  <depth>3</depth>
+ </size>
+ <segmented>0</segmented>
+ <object>
+  <name>person</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>558</xmin>
+   <ymin>411</ymin>
+   <xmax>605</xmax>
+   <ymax>456</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>car</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>49</xmin>
+   <ymin>414</ymin>
+   <xmax>118</xmax>
+   <ymax>426</ymax>
+  </bndbox>
+ </object>
+</annotation>

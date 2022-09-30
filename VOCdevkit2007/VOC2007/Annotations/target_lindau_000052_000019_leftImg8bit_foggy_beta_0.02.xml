@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<annotation>
+ <folder>Cityscapes</folder>
+ <filename>source_lindau_000052_000019_leftImg8bit.jpg</filename>
+ <source>
+  <database>Cityscapes</database>
+  <annotation>PASCAL VOC2007</annotation>
+ </source>
+ <size>
+  <width>2048</width>
+  <height>1024</height>
+  <depth>3</depth>
+ </size>
+ <segmented>0</segmented>
+ <object>
+  <name>rider</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>1903</xmin>
+   <ymin>383</ymin>
+   <xmax>1968</xmax>
+   <ymax>499</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>car</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>1591</xmin>
+   <ymin>393</ymin>
+   <xmax>1753</xmax>
+   <ymax>481</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>bicycle</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>1879</xmin>
+   <ymin>437</ymin>
+   <xmax>1985</xmax>
+   <ymax>511</ymax>
+  </bndbox>
+ </object>
+</annotation>

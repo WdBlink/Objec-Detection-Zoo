@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<annotation>
+ <folder>Cityscapes</folder>
+ <filename>source_jena_000034_000019_leftImg8bit.jpg</filename>
+ <source>
+  <database>Cityscapes</database>
+  <annotation>PASCAL VOC2007</annotation>
+ </source>
+ <size>
+  <width>2048</width>
+  <height>1024</height>
+  <depth>3</depth>
+ </size>
+ <segmented>0</segmented>
+ <object>
+  <name>person</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>958</xmin>
+   <ymin>456</ymin>
+   <xmax>980</xmax>
+   <ymax>497</ymax>
+  </bndbox>
+ </object>
+ <object>
+  <name>person</name>
+  <truncated>0</truncated>
+  <difficult>0</difficult>
+  <bndbox>
+   <xmin>991</xmin>
+   <ymin>458</ymin>
+   <xmax>1019</xmax>
+   <ymax>497</ymax>
+  </bndbox>
+ </object>
+</annotation>
